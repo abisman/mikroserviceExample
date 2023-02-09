@@ -1,0 +1,5 @@
+package com.example.microservicesRoom.service.impl;
+
+public class RoomServiceImpl {
+
+}

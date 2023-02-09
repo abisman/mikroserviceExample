@@ -1,0 +1,23 @@
+package com.example.microservices.service.impl;
+
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.example.microservices.model.BookingModel;
+import com.example.microservices.repository.BookingRepository;
+import com.example.microservices.service.BookingService;
+
+@Service
+public class BookingServiceImpl implements BookingService {
+	
+	@AutoWired
+	private BookingRepository bookingRepository;
+
+	@Override
+	public List<BookingModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

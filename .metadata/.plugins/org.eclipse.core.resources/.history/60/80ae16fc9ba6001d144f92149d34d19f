@@ -1,0 +1,11 @@
+package com.example.microservices.repository;
+
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+
+import com.example.microservices.model.BookingModel;
+
+@Repository
+public interface BookingRepository extends CrudRepository<BookingModel, Long> {
+	
+}

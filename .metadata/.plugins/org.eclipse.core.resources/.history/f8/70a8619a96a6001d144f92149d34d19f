@@ -1,0 +1,32 @@
+package com.example.microservices.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.microservices.model.BookingModel;
+import com.example.microservices.service.BookingService;
+
+@RestController
+public class BookingController {
+	
+	@Autowired
+	private BookingService bookingService;
+	
+	@GetMapping("/hello")
+	public String hello(@RequestParam(value="name", defaultValue="World") String name,
+			@RequestParam(value="age", defaultValue="0") String age) {
+		String sentence = String.format("Hello %s!", name) + 
+				(Integer.valueOf(age) < 14 ? " Kamu masih terlalu muda!" : 
+					String.format(" Umur kamu adalah %s", age));
+		return sentence;
+	}
+	
+	@RequestMapping("/create")
+	public String create(@RequestParam String name, @RequestParam String date, @RequestParam String price) {
+		BookingModel b = bookingService.create(name, date, price);
+		return b;
+	}
+}

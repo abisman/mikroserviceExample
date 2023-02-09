@@ -1,0 +1,11 @@
+package com.example.microservicesBooking.service;
+
+import java.util.List;
+
+import com.example.microservicesBooking.model.BookingModel;
+
+public interface BookingService {
+	List<BookingModel> findAll();
+	
+	BookingModel create(String name, String date, String price);
+}
