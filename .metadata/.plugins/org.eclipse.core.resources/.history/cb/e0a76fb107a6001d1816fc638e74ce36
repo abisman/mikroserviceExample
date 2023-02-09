@@ -1,8 +1,0 @@
-package com.example.microservices.repository;
-
-public class BookingRepository {
-	private String id;
-	private String name;
-	private String date;
-	private String price;
-}
