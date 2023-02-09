@@ -1,9 +1,0 @@
-package com.example.microservices.service;
-
-import java.util.List;
-
-import com.example.microservices.model.BookingModel;
-
-public interface BookingService {
-	List<BookingModel> findAll();
-}
