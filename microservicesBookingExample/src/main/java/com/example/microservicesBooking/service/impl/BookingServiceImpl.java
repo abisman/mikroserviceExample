@@ -22,8 +22,8 @@ public class BookingServiceImpl implements BookingService {
 	}
 
 	@Override
-	public Booking create(String name, String date, String price, String roomType, int amountOfPeople) {
-		Booking booking = new Booking(name, date, price, roomType, amountOfPeople);
+	public Booking create(String name, String date, String roomCode, Double totalPrice, int totalNights, int amountOfPeople) {
+		Booking booking = new Booking(name, date, roomCode, totalPrice, totalNights, amountOfPeople);
 		return bookingRepository.save(booking);
 	}
 }

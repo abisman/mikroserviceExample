@@ -1,60 +1,44 @@
 package com.example.microservicesRoom.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "room")
 public class Room {
-	
-	@Id
-	private String id;
 
-	private String roomType;
-	private int amountOfPeople;
-	
+	@Id
+	private String roomCode;
+
+	private String roomName;
+
 	public Room() {
 		super();
 	}
 
-	public Room(String id, String roomType, int amountOfPeople) {
-		super();
-		this.id = id;
-		this.roomType = roomType;
-		this.amountOfPeople = amountOfPeople;
+	public Room(String roomCode, String roomName) {
+		this.roomCode = roomCode;
+		this.roomName = roomName;
 	}
 
-	public String getId() {
-		return id;
+	public String getRoomCode() {
+		return roomCode;
 	}
-	
-	public void setId(String id) {
-		this.id = id;
+
+	public void setRoomCode(String roomCode) {
+		this.roomCode = roomCode;
 	}
-	
-	public String getRoomType() {
-		return roomType;
+
+	public String getRoomName() {
+		return roomName;
 	}
-	
-	public void setRoomType(String roomType) {
-		this.roomType = roomType;
+
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
 	}
-	
-	public int getAmountOfPeople() {
-		return amountOfPeople;
-	}
-	
-	public void setAmountOfPeople(int amountOfPeople) {
-		this.amountOfPeople = amountOfPeople;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "Room Type is " + this.roomType + 
-				" with an Id " + this.id + 
-				" can carry " + this.amountOfPeople + " people";
+		return "Room [Room Name: " + this.roomName +
+				", Room Code: " + this.roomCode + "]";
 	}
 }

@@ -21,78 +21,88 @@ public class Booking {
 	
 	private String name;
 	private String date;
-	private String price;
-	private String roomType;
-	private int amountOfPeople;
+	private String roomCode;
+	private Double totalPrice;
+	private Integer totalNights;
+	private Integer amountOfPeople;
 
 	public Booking() {
 		super();
 	}
 
-	public Booking(String name, String date, String price, String roomType, int amountOfPeople) {
-		super();
+	public Booking(String name, String date, String roomCode, Double totalPrice, Integer totalNights, Integer amountOfPeople) {
 		this.name = name;
 		this.date = date;
-		this.price = price;
-		this.roomType = roomType;
+		this.roomCode = roomCode;
+		this.totalPrice = totalPrice;
+		this.totalNights = totalNights;
 		this.amountOfPeople = amountOfPeople;
 	}
-	
+
 	public Long getId() {
 		return id;
 	}
-	
+
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
+
 	public String getName() {
 		return name;
 	}
-	
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+
 	public String getDate() {
 		return date;
 	}
-	
+
 	public void setDate(String date) {
 		this.date = date;
 	}
-	
-	public String getPrice() {
-		return price;
-	}
-	
-	public void setPrice(String price) {
-		this.price = price;
-	}
-	
-	public String getRoomType() {
-		return roomType;
+
+	public String getRoomCode() {
+		return roomCode;
 	}
 
-	public void setRoomType(String roomType) {
-		this.roomType = roomType;
+	public void setRoomCode(String roomCode) {
+		this.roomCode = roomCode;
 	}
 
-	public int getPersonType() {
+	public Double getTotalPrice() {
+		return totalPrice;
+	}
+
+	public void setTotalPrice(Double totalPrice) {
+		this.totalPrice = totalPrice;
+	}
+
+	public Integer getTotalNights() {
+		return totalNights;
+	}
+
+	public void setTotalNights(Integer totalNights) {
+		this.totalNights = totalNights;
+	}
+
+	public Integer getAmountOfPeople() {
 		return amountOfPeople;
 	}
 
-	public void setPersonType(int personType) {
-		this.amountOfPeople = personType;
+	public void setAmountOfPeople(Integer amountOfPeople) {
+		this.amountOfPeople = amountOfPeople;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Booking [ID = " + this.id + 
 				", Name = " + this.name + 
-				", Date issued = " + this.date + 
-				", Price = " + this.price +
-				", Room Type = " + this.roomType + 
+				", Date issued = " + this.date +
+				", Room code = " + this.roomCode +
+				", Total Price = " + this.totalPrice +
+				", Total Nights = " + this.totalNights +
 				", Amount of People = " + this.amountOfPeople + "]"; 
 	}
 }

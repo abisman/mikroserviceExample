@@ -18,54 +18,49 @@ public class RoomServiceImpl implements RoomService {
 
 	@Override
 	public List<Room> findAll() {
-		List<Room> rooms = (List<Room>) repository.findAll();
-		return rooms;
+		return (List<Room>) repository.findAll();
 	}
 
 	@Override
 	public Room findById(String id) {
 		Optional<Room> room = repository.findById(id);
-		return room.get();
+		return room.orElse(null);
 	}
 
 	@Override
-	public Room create(String roomType, int amountOfPeople) {
-		String id = roomTypeMapping(roomType) + amountOfPeople;
-		
-		Room room = new Room(id, roomType, amountOfPeople);
+	public Room create(String roomType, String roomName) {
+		List<Room> roomList = findAll();
+		String roomTypeCode = roomTypeMapping(roomType);
+		int count = 1;
+		StringBuilder index = new StringBuilder();
+
+		for (Room room:
+			 roomList) {
+			if(room.getRoomCode().contains(roomTypeCode)) count += 1;
+		}
+
+		index.append(count);
+
+		while(index.length() < 3) {
+			index.insert(0, "0");
+		}
+
+		Room room = new Room(roomTypeCode + index, roomName);
 		return repository.save(room);
 	}
 	
 	private String roomTypeMapping(String roomType) {
-		String id;
-		switch(roomType) {
-		case "Public":
-			id = "PB";
-			break;
-		case "Economy":
-			id = "EC";
-			break;
-		case "Executive":
-			id = "EX";
-			break;
-		case "Luxury":
-			id = "LU";
-			break;
-		case "Deluxe":
-			id = "DX";
-			break;
-		case "Wadaw":
-			id = "WW";
-			break;
-		case "Wadidaw":
-			id = "WD";
-			break;
-		default:
-			id = "UN"; // Unknown
-			break;
-		}
-		
-		return id;
+
+		return switch (roomType) {
+			case "Public" -> "PB";
+			case "Economy" -> "EC";
+			case "Executive" -> "EX";
+			case "Luxury" -> "LU";
+			case "Deluxe" -> "DX";
+			case "Wadaw" -> "WW";
+			case "Wadidaw" -> "WD";
+			default -> "UN"; // Unknown
+		};
 	}
 
 }

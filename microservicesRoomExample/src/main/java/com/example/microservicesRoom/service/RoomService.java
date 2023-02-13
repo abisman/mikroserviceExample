@@ -6,8 +6,6 @@ import com.example.microservicesRoom.model.Room;
 
 public interface RoomService {
 	List<Room> findAll();
-	
 	Room findById(String id);
-	
-	Room create(String roomType, int amountOfPeople);
+	Room create(String roomType, String roomName);
 }

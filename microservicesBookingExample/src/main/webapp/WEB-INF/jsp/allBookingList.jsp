@@ -1,5 +1,5 @@
 <%--<%@ taglib prefix="c" uri="jakarta.tags.core" %>--%>
-<!DOCTYPE html>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 <head>
@@ -7,9 +7,27 @@
     <title>Homepage</title>
 </head>
 <body>
-    <p>${welcome}</p>
-    <c:set var="euy" value="1050"/>
+    <a href="/">Back to index euy</a>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Room Type</th>
+            <th>Amount of People</th>
+        </tr>
+        <c:forEach var="books" items="${bookingServices}">
+            <tr>
+                <td>${books.id}</td>
+                <td>${books.name}</td>
+                <td>${books.date}</td>
+                <td>${books.price}</td>
+                <td>${books.roomType}</td>
+                <td>${books.personType}</td>
+            </tr>
+        </c:forEach>
+    </table>
     <p>Wadaw</p>
-    <p>${euy}</p>
 </body>
 </html>
